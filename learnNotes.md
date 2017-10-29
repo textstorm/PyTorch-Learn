@@ -7,3 +7,6 @@
 
 二、autograd
 1.Variable
+Variable是中心类，他对tensor进行包装，调用.backward()可以自动求导
+2.Function
+每一个变量都有.grad_fn属性，引用创建变量的函数(除了变量由用户创建，此时grad_fn is None)
