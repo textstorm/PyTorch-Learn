@@ -203,9 +203,9 @@ correct = 0
 total = 0
 for data in testloader:
   images, labels = data
-  outputs = net(Variable(images))
-  _, predicted = torch.max(outputs.dta, 1)
+  outputs = net(Variable(images.cuda()))
+  _, predicted = torch.max(outputs.data, 1)
   total += labels.size(0)
-  correct += (predicted == labels).sum()
+  correct += (predicted == labels.cuda()).sum()
 
 print('Accuracy of the network on the 10000 test images: %d %%' % (100 * correct / total))
